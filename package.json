@@ -1,5 +1,5 @@
 {
-  "name": "Ecommerce-app-2023",
+  "name": "ecommerce-app-2023",
   "version": "1.0.0",
   "description": "ecommerce rest api",
   "main": "server.js",
@@ -21,5 +21,13 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
     "react-icons": "^4.7.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agrawaldivy29/E-commerce-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agrawaldivy29/E-commerce-website/issues"
+  },
+  "homepage": "https://github.com/agrawaldivy29/E-commerce-website#readme"
 }

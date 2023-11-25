@@ -15,7 +15,7 @@ connectDB();
 const app = express();
 
 //middelwares
-app.use(express.json());
+app.use(express.json()); //to send and receive json data in req and res
 app.use(morgan("dev"));
 
 //routes
@@ -31,8 +31,5 @@ const PORT = process.env.PORT || 8080;
 
 //run listen
 app.listen(PORT, () => {
-  console.log(
-    `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
-      .white
-  );
+  console.log(`Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white);
 });

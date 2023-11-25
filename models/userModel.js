@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema(
       default: 0,
     },
   },
-  { timestamps: true }
+  { timestamps: true } //to save the created time
 );
 
 export default mongoose.model("users", userSchema);

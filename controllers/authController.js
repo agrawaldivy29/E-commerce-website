@@ -4,35 +4,36 @@ import JWT from "jsonwebtoken";
 
 export const registerController = async (req, res) => {
   try {
-    const { name, email, password, phone, address } = req.body;
+    const { name, email, password, phone, address } = req.body; //destructuring
+
     //validations
     if (!name) {
-      return res.send({ error: "Name is Required" });
+      return res.send({ error: "Name is required" });
     }
     if (!email) {
-      return res.send({ error: "Email is Required" });
+      return res.send({ error: "Email is required" });
     }
     if (!password) {
-      return res.send({ error: "Password is Required" });
+      return res.send({ error: "Password is required" });
     }
     if (!phone) {
-      return res.send({ error: "Phone no is Required" });
+      return res.send({ error: "Phone number is required" });
     }
     if (!address) {
-      return res.send({ error: "Address is Required" });
+      return res.send({ error: "Address is required" });
     }
-    //check user
+
+    //checking if user is already registered
     const exisitingUser = await userModel.findOne({ email });
-    //exisiting user
     if (exisitingUser) {
       return res.status(200).send({
         success: true,
-        message: "Already Register please login",
+        message: "User already registered please login",
       });
     }
-    //register user
+
+    //registering new user
     const hashedPassword = await hashPassword(password);
-    //save
     const user = await new userModel({
       name,
       email,
@@ -59,20 +60,19 @@ export const registerController = async (req, res) => {
 //POST LOGIN
 export const loginController = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    //validation
+    const { email, password } = req.body; //destructuring req.body
     if (!email || !password) {
       return res.status(404).send({
         success: false,
         message: "Invalid email or password",
       });
     }
-    //check user
+    
     const user = await userModel.findOne({ email });
     if (!user) {
       return res.status(404).send({
         success: false,
-        message: "Email is not registerd",
+        message: "Email is not registered",
       });
     }
     const match = await comparePassword(password, user.password);
@@ -88,7 +88,7 @@ export const loginController = async (req, res) => {
     });
     res.status(200).send({
       success: true,
-      message: "login successfully",
+      message: "Login successfully",
       user: {
         _id: user._id,
         name: user.name,

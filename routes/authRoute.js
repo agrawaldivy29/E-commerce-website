@@ -7,10 +7,8 @@ import {
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 
 //router object
-const router = express.Router();
+const router = express.Router(); //if we perform routing in a seperate file then we have to use Router() method
 
-//routing
-//REGISTER || METHOD POST
 router.post("/register", registerController);
 
 //LOGIN || POST

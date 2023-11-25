@@ -1,10 +1,11 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
-import { GiShoppingBag } from "react-icons/gi";
+import { NavLink, Link } from "react-router-dom"; //anchor tag is not used in react. Instead we use Link and NavLink.
 
 const Header = () => {
   return (
     <>
+      {" "}
+      {/* //syntactical sugar form */}
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <button
